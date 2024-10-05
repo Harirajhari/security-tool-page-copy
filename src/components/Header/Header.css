@@ -1,0 +1,81 @@
+.header {
+    height: 10vh; /* Header height */
+    display: flex;
+    align-items: center;
+    background-color: #ffffff; /* Light background color */
+    padding: 0 20px; /* Horizontal padding */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Shadow effect */
+    position: fixed;
+    top:0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+}
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Space between logo and user info */
+    width: 100%;
+}
+
+.logo {
+    width: 200px; /* Adjust height as needed */
+}
+
+.store-name {
+    margin-left: 20px; /* Space between logo and store name */
+    font-size: 24px; /* Adjust font size */
+    color: #333; /* Text color */
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    position: relative; /* For positioning the dropdown */
+    cursor: pointer; /* Change cursor to pointer */
+}
+
+.username {
+    margin-left: 10px; /* Space between username and icon */
+    font-size: 16px; /* Adjust font size */
+    color: #555; /* Text color */
+}
+
+.help-icon,.user-icon {
+    font-size: 30px; /* Adjust icon size */
+    margin-left: 15px; /* Space between icons */
+    color: #333; /* Icon color */
+    transition: color 0.3s; /* Transition for hover effect */
+}
+
+.help-icon:hover {
+    color: #007BFF; /* Change color on hover */
+}
+
+.dropdown-menu {
+    position: absolute; /* Position dropdown relative to user info */
+    right: 0; /* Align dropdown to the right */
+    top: 100%; /* Position below the user info */
+    background-color: white; /* Dropdown background color */
+    border: 1px solid #ccc; /* Border around dropdown */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Shadow for dropdown */
+    z-index: 1000; /* Ensure dropdown is above other content */
+    margin-top: 10px; /* Space between user info and dropdown */
+    border-radius: 4px; /* Rounded corners */
+}
+
+.dropdown-menu ul {
+    list-style: none; /* Remove default list styling */
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+}
+
+.dropdown-menu li {
+    padding: 10px 20px; /* Padding for menu items */
+    cursor: pointer; /* Change cursor to pointer */
+    transition: background-color 0.3s; /* Transition for hover effect */
+}
+
+.dropdown-menu li:hover {
+    background-color: #f0f0f0; /* Change background on hover */
+}

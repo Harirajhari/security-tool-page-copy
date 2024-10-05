@@ -1,0 +1,27 @@
+/* Pages/PageNotReady.css */
+.page-not-ready {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 95vh;
+    background: #282c34;
+    color: white;
+    perspective: 1000px;
+    overflow: hidden;
+    border-radius: 10px;
+  }
+  
+  .message-container {
+    text-align: center;
+    transition: transform 0.1s ease-out;
+  }
+  
+  .message-container h1 {
+    font-size: 3em;
+    margin-bottom: 0.5em;
+  }
+  
+  .message-container p {
+    font-size: 1.5em;
+  }
+  

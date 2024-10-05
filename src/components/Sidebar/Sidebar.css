@@ -1,0 +1,118 @@
+:root {
+    /* Base Gradient Colors */
+    --neon-blue: #15F5BA;
+    --bright-blue: #0066ff;
+  
+    /* Lighter Shades */
+    --neon-blue-light: #5fffd4;
+    --bright-blue-light: #3399ff;
+  
+    /* Darker Shades */
+    --neon-blue-dark: #0eb18a;
+    --bright-blue-dark: #004bb3;
+  
+    /* Transparent Versions */
+    --neon-blue-transparent: rgba(21, 245, 186, 0.6);
+    --bright-blue-transparent: rgba(0, 102, 255, 0.6);
+  
+    /* Accent Colors */
+    --accent-green: #24FFC9;
+    --accent-cyan: #13B8E9;
+    --accent-purple: #6D00FF;
+  
+    /* Grey Scale Colors for Backgrounds */
+    --light-grey: #f5f5f5;
+    --grey: #e0e0e0;
+    --dark-grey: #757575;
+    --blue-grey-50: #ECEFF1;
+    --blue-grey-100: #CFD8DC;
+    --blue-grey-200: #B0BEC5;
+    --blue-grey-700: #455A64;
+    --blue-grey-900: #263238;
+  
+    /* Font Colors */
+    --text-dark: #222222;
+    --text-light: #ffffff;
+    --text-muted: #757575;
+  
+    /* Gradient with Black */
+    --gradient-bg: linear-gradient(90deg, #15F5BA, #0066ff);
+  }
+.sidebar {
+    width: 70px; 
+    position: fixed;
+    top: 10%;
+    left: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.684);
+    overflow-x: hidden;
+    transition: 0.5s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 60px;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.5); 
+}
+
+.sidebar.open {
+    width: 250px;
+}
+
+.sidebar.open .menu-items a svg {
+    margin-right: 10px;
+}
+
+.sidebar.open .menu-items a:hover {
+    color: var(--text-dark); /* Dark text on hover */
+
+    
+}
+
+.menu-icon {
+    font-size: 30px;
+    cursor: pointer;
+    border: none;
+    background: transparent;
+    margin-bottom: 20px;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    border-radius: 5px;
+    padding: 10px 15px;
+    font-weight: bolder;
+    color: var(--bright-blue-dark); /* Darker color for the icon text */
+} 
+
+.menu-items {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.menu-items a {
+    text-decoration: none;
+    font-size: 20px;
+    color: var(--bright-blue-light); /* Light text for links */
+    display: flex;
+    align-items: center;
+    transition: 0.3s;
+    border-radius: 10px;
+    margin: 10px;
+}
+
+.menu-items a svg {
+    padding: 10px;
+    font-size: 25px;
+    color: var(--bright-blue); /* Neon cyan icons */
+}
+
+.sidebar.closed .menu-items a:hover {
+    color: var(--text-dark); /* Dark text on hover */
+    background-color: var(--accent-blue); /* Light blue for closed sidebar hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.menu-items a:hover {
+    background-color: var(--bright-blue-light);
+    color: var(--text-light);
+    transition: background-color 0.3s ease;
+}

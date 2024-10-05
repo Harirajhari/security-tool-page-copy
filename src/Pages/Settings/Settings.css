@@ -1,0 +1,392 @@
+    .settings {
+    padding: 30px;
+    margin-top: 60px;
+    background-color: #1e1e1e; /* Black background for settings */
+    color: white;
+  }
+  
+  .settings .settings-container {
+    max-width: 1400px;
+    margin: 20px auto;
+    background-color: #242424; /* Slightly lighter than the main background */
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* Subtle shadow for depth */
+    padding: 20px;
+    overflow: hidden;
+  }
+  
+  .settings .settings-header {
+    display: flex;
+    justify-content: flex-end;
+    padding-bottom: 20px;
+  }
+  
+  .settings .save-btn {
+    background-color: #ff5722;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    box-shadow: 0px 4px 15px rgba(255, 87, 34, 0.4);
+  }
+  
+  .settings .save-btn:hover {
+    background-color: #ff7043;
+  }
+  
+  .settings .tabs {
+    display: flex;
+    border-bottom: 2px solid #333;
+    margin-top: 10px;
+    padding-bottom: 10px;
+    overflow-x: auto;
+  }
+  
+  .settings .tab-link {
+    background-color: transparent;
+    border: none;
+    color: #888;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 16px;
+    position: relative;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+  
+  .settings .tab-link.active, .settings .tab-link:hover {
+    color: #ff5722;
+    border-bottom: 2px solid #ff5722;
+  }
+  
+  .settings .tab-link::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    height: 2px;
+    width: 0;
+    background-color: #ff5722;
+    transition: width 0.3s ease, left 0.3s ease;
+  }
+  
+  .settings .tab-link.active::before {
+    width: 100%;
+    left: 0;
+  }
+  
+  .settings .tab-content {
+    padding: 30px;
+    background-color: #1e1e1e;
+    border-radius: 8px;
+    margin-top: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  }
+  
+  .settings .update-options {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .settings .update-options label {
+    font-size: 18px;
+    margin-bottom: 15px;
+    color: #ff5722;
+  }
+  
+  .settings .update-options select {
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ff5722;
+    background-color: #333;
+    color: #fff;
+    outline: none;
+    transition: border-color 0.3s ease;
+  }
+  
+  .settings .update-options select:hover {
+    border-color: #ff7043;
+  }
+  
+  .settings .version-info {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #bbb;
+  }
+  
+  .settings .version-info span {
+    display: block;
+    margin-top: 5px;
+  }
+  
+  .settings .update-btn {
+    margin-top: 20px;
+    padding: 12px 25px;
+    background-color: #ff5722;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: bold;
+    box-shadow: 0px 4px 15px rgba(255, 87, 34, 0.4);
+    transition: background-color 0.3s ease;
+  }
+  
+  .settings .update-btn:hover {
+    background-color: #ff7043;
+  }
+  
+  .settings .footer {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #444;
+    text-align: center;
+  }
+  
+  .settings .footer p {
+    color: #888;
+    font-size: 14px;
+  }
+  
+
+  
+  /* Proxy settings toggle */
+.proxy-settings {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+ .proxy-settings .proxy-label {
+    font-size: 18px;
+    margin-left: 10px;
+  }
+  
+  .proxy-settings .toggle {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 20px;
+  }
+  
+  .proxy-settings .toggle input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .proxy-settings .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+    border-radius: 20px;
+  }
+  
+  .proxy-settings .slider:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 2px;
+    bottom: 2px;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;
+  }
+  
+  .proxy-settings input:checked + .slider {
+    background-color: #4caf50;
+  }
+  
+  .proxy-settings input:checked + .slider:before {
+    transform: translateX(20px);
+  }
+  
+  /* Disable and enable effect */
+  .proxy-settings .settings-container {
+    opacity: 0.5;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+  
+  .proxy-settings .settings-container.enabled {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  
+ /* Wrapper for select dropdown */
+ .proxy-com select {
+    width: 100%;
+    padding: 12px;
+    margin-top: 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #ffffff;
+    transition: all 0.3s ease;
+    appearance: none; /* Hides default arrow */
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg xmlns%3D%27http%3A//www.w3.org/2000/svg%27 viewBox%3D%270 0 4 5%27%3E%3Cpath fill%3D%27%23444444%27 d%3D%27M2 0L0 2h4zM0 3l2 2 2-2z%27/%3E%3C/svg%3E'); /* Custom arrow */
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 10px;
+    cursor: pointer;
+}
+
+.proxy-com select:focus {
+    outline: none;
+    border-color: #007BFF;
+    box-shadow: 0 0 6px rgba(0, 123, 255, 0.5);
+}
+
+/* Disabled state */
+.proxy-com select:disabled {
+    background-color: #f1f1f1;
+    border-color: #ddd;
+    cursor: not-allowed;
+}
+
+/* Hover effect */
+.proxy-com select:hover {
+    border-color: #0056b3;
+}
+
+/* Add a smooth transition */
+.proxy-com select {
+    transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+/* Style for label */
+.proxy-com label {
+    font-weight: bold;
+    font-size: 15px;
+    margin-bottom: 8px;
+    color: #ffffff;
+}
+
+/* Notification Settings Styles */
+
+
+
+.notification-settings {
+    width: 100%;
+    margin: 20px 0;
+    padding: 20px;
+    background-color: #292727;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    font-weight: bold;
+    font-size: 15px;
+    color: #ffffff;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.form-group input {
+    width: 98%;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    transition: border-color 0.2s ease;
+}
+
+.form-group input:focus {
+    border-color: #007BFF;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    outline: none;
+}
+
+.form-group select {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #fff;
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg xmlns%3D%27http%3A//www.w3.org/2000/svg%27 viewBox%3D%270 0 4 5%27%3E%3Cpath fill%3D%27%23444444%27 d%3D%27M2 0L0 2h4zM0 3l2 2 2-2z%27/%3E%3C/svg%3E'); /* Custom arrow */
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 10px;
+    appearance: none;
+    transition: all 0.3s ease;
+}
+
+.form-group select:focus {
+    outline: none;
+    border-color: #006de2;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* Disabled state for inputs */
+.form-group input:disabled, 
+.form-group select:disabled {
+    background-color: #a9abae;
+    cursor: not-allowed;
+    border-color: #ddd;
+}
+
+
+/* Enable/Disable Toggle Button */
+.notification-com .toggle {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 24px;
+}
+
+.notification-com .toggle input {
+    display: none;
+}
+
+.notification-com .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+    border-radius: 24px;
+}
+
+.notification-com .slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 4px;
+    bottom: 2px;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;
+}
+
+.notification-com input:checked + .slider {
+    background-color: #28a745;
+}
+
+.notification-com input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+.notification-com .notification-label {
+    margin-left: 10px;
+    font-weight: bold;
+}
