@@ -15,16 +15,56 @@ const Settings = () => {
         setIsProxyEnabled((prevState) => !prevState);
     };
 
-
     const handleNotificationToggle = () => {
         setIsNotificationEnabled(!isNotificationEnabled);
     };
 
+    // Check if the selected tab is one of the specific tabs to show Save button
+    const showSaveButton = ['Product Updates', 'Proxy Settings', 'Notification Settings'].includes(selectedTab);
+
+    const showUserButtons = selectedTab === 'Users';
+
+    // Sample user data
+    const userData = [
+        {
+            id: 1,
+            name: 'John Doe',
+            email: 'john.doe@example.com',
+            role: 'Tester',
+            accessAllTargets: false,
+            enabled: true
+        },
+        {
+            id: 2,
+            name: 'Alice Smith',
+            email: 'alice.smith@company.com',
+            role: 'Quality Assurance Engineer',
+            accessAllTargets: false,
+            enabled: true
+        },
+                
+        // You can add more user data objects here
+    ];
+
     return (
         <div className='settings'>
             <div className="settings-container">
+                {/* Conditionally render the Save button or a custom message */}
                 <div className="settings-header">
-                    <button className="save-btn">Save</button>
+                    {showSaveButton && <button className="save-btn">Save</button>}
+
+                    {showUserButtons && (
+                        <div className="user-actions">
+                            <button className="user-btn">Add User</button>
+                            <button className="user-btn">Delete</button>
+                            <button className="user-btn">Enable</button>
+                            <button className="user-btn">Disable</button>
+                        </div>
+                    )}
+
+                    {!showSaveButton && !showUserButtons && (
+                        <p className="header-message">{`You are on the ${selectedTab} tab`}</p>  // Custom message for other tabs
+                    )}
                 </div>
 
                 <div className="tabs">
@@ -88,10 +128,8 @@ const Settings = () => {
                         </div>
                     )}
 
-
                     {selectedTab === 'Notification Settings' && (
                         <div className='notification-com'>
-                            {/* Enable/Disable Notification Settings Toggle */}
                             <div className="notification-settings">
                                 <label className="toggle">
                                     <input
@@ -105,7 +143,6 @@ const Settings = () => {
                                 <span className="notification-label">Notification Settings</span>
                             </div>
 
-                            {/* Form Fields for Notification Settings */}
                             <div className={`settings-container ${isNotificationEnabled ? 'enabled' : 'disabled'}`}>
                                 <p><i className="info-icon"></i> Configure SMTP server for notifications.</p>
 
@@ -152,6 +189,40 @@ const Settings = () => {
                         </div>
                     )}
 
+
+                    {selectedTab === 'Users' && (
+                        <div className="users-tab-content">
+                            <h2>User Management</h2>
+                            <table className="user-table">
+                                <thead>
+                                    <tr>
+                                        <th>Select</th>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        <th>Role</th>
+                                        <th>Access All Targets</th>
+                                        <th>Enabled</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {userData.map((user, index) => (
+                                        <tr key={index}>
+                                            <td>
+                                                <input
+                                                    type="checkbox"
+                                                />
+                                            </td>
+                                            <td>{user.name}</td>
+                                            <td>{user.email}</td>
+                                            <td>{user.role}</td>
+                                            <td>{user.accessAllTargets ? '✔' : '✖'}</td>
+                                            <td>{user.enabled ? '✔' : '✖'}</td>
+                                        </tr>
+                                    ))}
+                                </tbody>
+                            </table>
+                        </div>
+                    )}
 
                 </div>
 

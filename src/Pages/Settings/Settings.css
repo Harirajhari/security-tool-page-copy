@@ -390,3 +390,66 @@
     margin-left: 10px;
     font-weight: bold;
 }
+
+/* user slide */
+.user-actions .user-btn{
+    background-color: #ff5722;  
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    margin-right: 05px;
+    box-shadow: 0px 4px 15px rgba(255, 87, 34, 0.4);
+}
+
+/* Hover effect for buttons */
+.tab-content .user-actions .user-btn:hover {
+  background-color: #e64a19;  /* Darker shade of orange for hover */
+}
+
+/* Table styling with black theme */
+.tab-content .user-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+}
+
+.tab-content .user-table th, .user-table td {
+  border: 1px solid #444;  /* Darker border to match dark theme */
+  padding: 8px;
+  text-align: left;
+  color: #e0e0e0;  /* Light text for contrast */
+}
+
+/* Table header styling */
+.tab-content .user-table th {
+  background-color: #333;  /* Dark background for headers */
+  color: #e0e0e0;  /* Light text */
+  font-weight: bold;
+}
+
+/* Table row styling */
+.tab-content .user-table tr:nth-child(even) {
+  background-color: #2a2a2a;  /* Alternate dark background for even rows */
+}
+
+.tab-content .user-table tr:nth-child(odd) {
+  background-color: #1e1e1e;  /* Darker background for odd rows */
+}
+
+/* Hover effect for table rows */
+.tab-content .user-table tr:hover {
+  background-color: #444;  /* Slightly lighter dark color for hover */
+}
+
+/* Optional styling for links or icons inside the table */
+.tab-content .user-table a {
+  color: #ff5722;  /* Accent color for links */
+}
+
+.tab-content .user-table a:hover {
+  color: #ff8a50;  /* Lighter shade on hover */
+}
