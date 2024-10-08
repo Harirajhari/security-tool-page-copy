@@ -1,275 +1,275 @@
-    .settings {
-    padding: 30px;
-    margin-top: 60px;
-    background-color: #1e1e1e; /* Black background for settings */
-    color: white;
-  }
-  
-  .settings .settings-container {
-    max-width: 1400px;
-    margin: 20px auto;
-    background-color: #242424; /* Slightly lighter than the main background */
-    border-radius: 10px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* Subtle shadow for depth */
-    padding: 20px;
-    overflow: hidden;
-  }
-  
-  .settings .settings-header {
-    display: flex;
-    justify-content: flex-end;
-    padding-bottom: 20px;
-  }
-  
-  .settings .save-btn {
-    background-color: #ff5722;
-    color: white;
-    border: none;
-    padding: 12px 25px;
-    border-radius: 30px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-    box-shadow: 0px 4px 15px rgba(255, 87, 34, 0.4);
-  }
-  
-  .settings .save-btn:hover {
-    background-color: #ff7043;
-  }
-  
-  .settings .tabs {
-    display: flex;
-    border-bottom: 2px solid #333;
-    margin-top: 10px;
-    padding-bottom: 10px;
-    overflow-x: auto;
-  }
-  
-  .settings .tab-link {
-    background-color: transparent;
-    border: none;
-    color: #888;
-    padding: 10px 15px;
-    cursor: pointer;
-    font-size: 16px;
-    position: relative;
-    font-weight: 500;
-    transition: color 0.3s ease;
-  }
-  
-  .settings .tab-link.active, .settings .tab-link:hover {
-    color: #ff5722;
-    border-bottom: 2px solid #ff5722;
-  }
-  
-  .settings .tab-link::before {
-    content: '';
-    position: absolute;
-    left: 50%;
-    bottom: 0;
-    height: 2px;
-    width: 0;
-    background-color: #ff5722;
-    transition: width 0.3s ease, left 0.3s ease;
-  }
-  
-  .settings .tab-link.active::before {
-    width: 100%;
-    left: 0;
-  }
-  
-  .settings .tab-content {
-    padding: 30px;
-    background-color: #1e1e1e;
-    border-radius: 8px;
-    margin-top: 20px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-  }
-  
-  .settings .update-options {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .settings .update-options label {
-    font-size: 18px;
-    margin-bottom: 15px;
-    color: #ff5722;
-  }
-  
-  .settings .update-options select {
-    padding: 12px;
-    font-size: 16px;
-    border-radius: 5px;
-    border: 1px solid #ff5722;
-    background-color: #333;
-    color: #fff;
-    outline: none;
-    transition: border-color 0.3s ease;
-  }
-  
-  .settings .update-options select:hover {
-    border-color: #ff7043;
-  }
-  
-  .settings .version-info {
-    margin-top: 20px;
-    font-size: 14px;
-    color: #bbb;
-  }
-  
-  .settings .version-info span {
-    display: block;
-    margin-top: 5px;
-  }
-  
-  .settings .update-btn {
-    margin-top: 20px;
-    padding: 12px 25px;
-    background-color: #ff5722;
-    color: white;
-    border: none;
-    border-radius: 30px;
-    cursor: pointer;
-    font-weight: bold;
-    box-shadow: 0px 4px 15px rgba(255, 87, 34, 0.4);
-    transition: background-color 0.3s ease;
-  }
-  
-  .settings .update-btn:hover {
-    background-color: #ff7043;
-  }
-  
-  .settings .footer {
-    margin-top: 30px;
-    padding-top: 20px;
-    border-top: 1px solid #444;
-    text-align: center;
-  }
-  
-  .settings .footer p {
-    color: #888;
-    font-size: 14px;
-  }
-  
+.settings {
+  padding: 30px;
+  margin-top: 60px;
+  background-color: #1e1e1e; /* Black background for settings */
+  color: white;
+}
 
-  
-  /* Proxy settings toggle */
+.settings .settings-container {
+  max-width: 1400px;
+  margin: 20px auto;
+  background-color: #242424; /* Slightly lighter than the main background */
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* Subtle shadow for depth */
+  padding: 20px;
+  overflow: hidden;
+}
+
+.settings .settings-header {
+  display: flex;
+  justify-content: flex-end;
+  padding-bottom: 20px;
+}
+
+.settings .save-btn {
+  background-color: #ff5722;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  box-shadow: 0px 4px 15px rgba(255, 87, 34, 0.4);
+}
+
+.settings .save-btn:hover {
+  background-color: #ff7043;
+}
+
+.settings .tabs {
+  display: flex;
+  border-bottom: 2px solid #333;
+  margin-top: 10px;
+  padding-bottom: 10px;
+  overflow-x: auto;
+}
+
+.settings .tab-link {
+  background-color: transparent;
+  border: none;
+  color: #888;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-size: 16px;
+  position: relative;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.settings .tab-link.active, .settings .tab-link:hover {
+  color: #ff5722;
+  border-bottom: 2px solid #ff5722;
+}
+
+.settings .tab-link::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  height: 2px;
+  width: 0;
+  background-color: #ff5722;
+  transition: width 0.3s ease, left 0.3s ease;
+}
+
+.settings .tab-link.active::before {
+  width: 100%;
+  left: 0;
+}
+
+.settings .tab-content {
+  padding: 30px;
+  background-color: #1e1e1e;
+  border-radius: 8px;
+  margin-top: 20px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.settings .update-options {
+  display: flex;
+  flex-direction: column;
+}
+
+.settings .update-options label {
+  font-size: 18px;
+  margin-bottom: 15px;
+  color: #ff5722;
+}
+
+.settings .update-options select {
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #ff5722;
+  background-color: #333;
+  color: #fff;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.settings .update-options select:hover {
+  border-color: #ff7043;
+}
+
+.settings .version-info {
+  margin-top: 20px;
+  font-size: 14px;
+  color: #bbb;
+}
+
+.settings .version-info span {
+  display: block;
+  margin-top: 5px;
+}
+
+.settings .update-btn {
+  margin-top: 20px;
+  padding: 12px 25px;
+  background-color: #ff5722;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: bold;
+  box-shadow: 0px 4px 15px rgba(255, 87, 34, 0.4);
+  transition: background-color 0.3s ease;
+}
+
+.settings .update-btn:hover {
+  background-color: #ff7043;
+}
+
+.settings .footer {
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid #444;
+  text-align: center;
+}
+
+.settings .footer p {
+  color: #888;
+  font-size: 14px;
+}
+
+
+
+/* Proxy settings toggle */
 .proxy-settings {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-  }
-  
- .proxy-settings .proxy-label {
-    font-size: 18px;
-    margin-left: 10px;
-  }
-  
-  .proxy-settings .toggle {
-    position: relative;
-    display: inline-block;
-    width: 40px;
-    height: 20px;
-  }
-  
-  .proxy-settings .toggle input {
-    opacity: 0;
-    width: 0;
-    height: 0;
-  }
-  
-  .proxy-settings .slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #ccc;
-    transition: 0.4s;
-    border-radius: 20px;
-  }
-  
-  .proxy-settings .slider:before {
-    position: absolute;
-    content: "";
-    height: 16px;
-    width: 16px;
-    left: 2px;
-    bottom: 2px;
-    background-color: white;
-    transition: 0.4s;
-    border-radius: 50%;
-  }
-  
-  .proxy-settings input:checked + .slider {
-    background-color: #4caf50;
-  }
-  
-  .proxy-settings input:checked + .slider:before {
-    transform: translateX(20px);
-  }
-  
-  /* Disable and enable effect */
-  .proxy-settings .settings-container {
-    opacity: 0.5;
-    pointer-events: none;
-    transition: opacity 0.3s ease;
-  }
-  
-  .proxy-settings .settings-container.enabled {
-    opacity: 1;
-    pointer-events: auto;
-  }
-  
- /* Wrapper for select dropdown */
- .proxy-com select {
-    width: 100%;
-    padding: 12px;
-    margin-top: 12px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    background-color: #ffffff;
-    transition: all 0.3s ease;
-    appearance: none; /* Hides default arrow */
-    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg xmlns%3D%27http%3A//www.w3.org/2000/svg%27 viewBox%3D%270 0 4 5%27%3E%3Cpath fill%3D%27%23444444%27 d%3D%27M2 0L0 2h4zM0 3l2 2 2-2z%27/%3E%3C/svg%3E'); /* Custom arrow */
-    background-repeat: no-repeat;
-    background-position: right 12px center;
-    background-size: 10px;
-    cursor: pointer;
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.proxy-settings .proxy-label {
+  font-size: 18px;
+  margin-left: 10px;
+}
+
+.proxy-settings .toggle {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 20px;
+}
+
+.proxy-settings .toggle input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.proxy-settings .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 20px;
+}
+
+.proxy-settings .slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 2px;
+  bottom: 2px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+.proxy-settings input:checked + .slider {
+  background-color: #4caf50;
+}
+
+.proxy-settings input:checked + .slider:before {
+  transform: translateX(20px);
+}
+
+/* Disable and enable effect */
+.proxy-settings .settings-container {
+  opacity: 0.5;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.proxy-settings .settings-container.enabled {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Wrapper for select dropdown */
+.proxy-com select {
+  width: 100%;
+  padding: 12px;
+  margin-top: 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #ffffff;
+  transition: all 0.3s ease;
+  appearance: none; /* Hides default arrow */
+  background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg xmlns%3D%27http%3A//www.w3.org/2000/svg%27 viewBox%3D%270 0 4 5%27%3E%3Cpath fill%3D%27%23444444%27 d%3D%27M2 0L0 2h4zM0 3l2 2 2-2z%27/%3E%3C/svg%3E'); /* Custom arrow */
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 10px;
+  cursor: pointer;
 }
 
 .proxy-com select:focus {
-    outline: none;
-    border-color: #007BFF;
-    box-shadow: 0 0 6px rgba(0, 123, 255, 0.5);
+  outline: none;
+  border-color: #007BFF;
+  box-shadow: 0 0 6px rgba(0, 123, 255, 0.5);
 }
 
 /* Disabled state */
 .proxy-com select:disabled {
-    background-color: #f1f1f1;
-    border-color: #ddd;
-    cursor: not-allowed;
+  background-color: #f1f1f1;
+  border-color: #ddd;
+  cursor: not-allowed;
 }
 
 /* Hover effect */
 .proxy-com select:hover {
-    border-color: #0056b3;
+  border-color: #0056b3;
 }
 
 /* Add a smooth transition */
 .proxy-com select {
-    transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
 
 /* Style for label */
 .proxy-com label {
-    font-weight: bold;
-    font-size: 15px;
-    margin-bottom: 8px;
-    color: #ffffff;
+  font-weight: bold;
+  font-size: 15px;
+  margin-bottom: 8px;
+  color: #ffffff;
 }
 
 /* Notification Settings Styles */
@@ -277,179 +277,671 @@
 
 
 .notification-settings {
-    width: 100%;
-    margin: 20px 0;
-    padding: 20px;
-    background-color: #292727;
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  margin: 20px 0;
+  padding: 20px;
+  background-color: #292727;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .form-group {
-    margin-bottom: 15px;
+  margin-bottom: 15px;
 }
 
 .form-group label {
-    font-weight: bold;
-    font-size: 15px;
-    color: #ffffff;
-    display: block;
-    margin-bottom: 8px;
+  font-weight: bold;
+  font-size: 15px;
+  color: #ffffff;
+  display: block;
+  margin-bottom: 8px;
 }
 
 .form-group input {
-    width: 98%;
-    padding: 12px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    transition: border-color 0.2s ease;
+  width: 98%;
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  transition: border-color 0.2s ease;
 }
 
 .form-group input:focus {
-    border-color: #007BFF;
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
-    outline: none;
+  border-color: #007BFF;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  outline: none;
 }
 
 .form-group select {
-    width: 100%;
-    padding: 12px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    background-color: #fff;
-    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg xmlns%3D%27http%3A//www.w3.org/2000/svg%27 viewBox%3D%270 0 4 5%27%3E%3Cpath fill%3D%27%23444444%27 d%3D%27M2 0L0 2h4zM0 3l2 2 2-2z%27/%3E%3C/svg%3E'); /* Custom arrow */
-    background-repeat: no-repeat;
-    background-position: right 12px center;
-    background-size: 10px;
-    appearance: none;
-    transition: all 0.3s ease;
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #fff;
+  background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg xmlns%3D%27http%3A//www.w3.org/2000/svg%27 viewBox%3D%270 0 4 5%27%3E%3Cpath fill%3D%27%23444444%27 d%3D%27M2 0L0 2h4zM0 3l2 2 2-2z%27/%3E%3C/svg%3E'); /* Custom arrow */
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 10px;
+  appearance: none;
+  transition: all 0.3s ease;
 }
 
 .form-group select:focus {
-    outline: none;
-    border-color: #006de2;
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  outline: none;
+  border-color: #006de2;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
 
 /* Disabled state for inputs */
 .form-group input:disabled, 
 .form-group select:disabled {
-    background-color: #a9abae;
-    cursor: not-allowed;
-    border-color: #ddd;
+  background-color: #a9abae;
+  cursor: not-allowed;
+  border-color: #ddd;
 }
 
 
 /* Enable/Disable Toggle Button */
 .notification-com .toggle {
-    position: relative;
-    display: inline-block;
-    width: 50px;
-    height: 24px;
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 24px;
 }
 
 .notification-com .toggle input {
-    display: none;
+  display: none;
 }
 
 .notification-com .slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #ccc;
-    transition: 0.4s;
-    border-radius: 24px;
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 24px;
 }
 
 .notification-com .slider:before {
-    position: absolute;
-    content: "";
-    height: 20px;
-    width: 20px;
-    left: 4px;
-    bottom: 2px;
-    background-color: white;
-    transition: 0.4s;
-    border-radius: 50%;
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  left: 4px;
+  bottom: 2px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
 }
 
 .notification-com input:checked + .slider {
-    background-color: #28a745;
+  background-color: #28a745;
 }
 
 .notification-com input:checked + .slider:before {
-    transform: translateX(26px);
+  transform: translateX(26px);
 }
 
 .notification-com .notification-label {
-    margin-left: 10px;
-    font-weight: bold;
+  margin-left: 10px;
+  font-weight: bold;
 }
 
 /* user slide */
 .user-actions .user-btn{
-    background-color: #ff5722;  
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 30px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-    margin-right: 05px;
-    box-shadow: 0px 4px 15px rgba(255, 87, 34, 0.4);
+  background-color: #ff5722;  
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  margin-right: 05px;
+  box-shadow: 0px 4px 15px rgba(255, 87, 34, 0.4);
 }
 
-/* Hover effect for buttons */
-.tab-content .user-actions .user-btn:hover {
-  background-color: #e64a19;  /* Darker shade of orange for hover */
-}
-
-/* Table styling with black theme */
+/* Enhanced table styling with modern card-like design */
 .tab-content .user-table {
   width: 100%;
-  border-collapse: collapse;
+  border-collapse: separate; /* Separate the border for smooth rounded corners */
+  border-spacing: 0;
   margin: 20px 0;
+  border-radius: 12px; /* Rounded corners */
+  overflow: hidden; /* Ensure the rounded corners apply */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); /* Drop shadow for card effect */
+  background-color: #1c1c1c; /* Dark background */
 }
 
-.tab-content .user-table th, .user-table td {
-  border: 1px solid #444;  /* Darker border to match dark theme */
-  padding: 8px;
-  text-align: left;
-  color: #e0e0e0;  /* Light text for contrast */
+/* Enhanced table styling with modern card-like design */
+.tab-content .user-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin: 20px 0;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+  background-color: #1c1c1c;
 }
 
 /* Table header styling */
 .tab-content .user-table th {
-  background-color: #333;  /* Dark background for headers */
-  color: #e0e0e0;  /* Light text */
+  background: linear-gradient(135deg, #4a4a4a, #333);
+  color: #fff;
   font-weight: bold;
+  padding: 15px;
+  text-align: center; /* Center the header text */
+  vertical-align: middle; /* Ensure vertical centering */
+  letter-spacing: 0.05em;
+  border-bottom: 2px solid #555;
 }
 
-/* Table row styling */
+/* Table cell styling */
+.tab-content .user-table td {
+  padding: 15px;
+  text-align: center; /* Center the row content */
+  vertical-align: middle; /* Ensure vertical centering */
+  color: #e0e0e0;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Alternating row background */
 .tab-content .user-table tr:nth-child(even) {
-  background-color: #2a2a2a;  /* Alternate dark background for even rows */
+  background-color: #2c2c2c;
 }
 
 .tab-content .user-table tr:nth-child(odd) {
-  background-color: #1e1e1e;  /* Darker background for odd rows */
+  background-color: #242424;
 }
 
 /* Hover effect for table rows */
 .tab-content .user-table tr:hover {
-  background-color: #444;  /* Slightly lighter dark color for hover */
+  background-color: #555;
+  cursor: pointer;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-/* Optional styling for links or icons inside the table */
+/* Checkbox styling (toggle button style) */
+.tab-content .user-table input[type="checkbox"] {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background-color: #444;
+  border: 2px solid #ff6f61;
+  border-radius: 5px;
+  position: relative;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.tab-content .user-table input[type="checkbox"]:checked {
+  background-color: #ff6f61;
+}
+
+.tab-content .user-table input[type="checkbox"]:checked::before {
+  content: '✔';
+  color: #fff;
+  position: absolute;
+  top: 0;
+  left: 4px;
+}
+
+/* Hover effect for checkboxes */
+.tab-content .user-table input[type="checkbox"]:hover {
+  background-color: #ff8a50;
+}
+
+/* Link styles in table */
 .tab-content .user-table a {
-  color: #ff5722;  /* Accent color for links */
+  color: #ff8a50;
+  text-decoration: none;
+  font-weight: 600;
 }
 
 .tab-content .user-table a:hover {
-  color: #ff8a50;  /* Lighter shade on hover */
+  text-decoration: underline;
+}
+
+/* Rounded corners on first and last table cells */
+/* .tab-content .user-table th:first-child,
+.tab-content .user-table td:first-child {
+  border-radius: 12px 0 0 12px;
+}
+
+.tab-content .user-table th:last-child,
+.tab-content .user-table td:last-child {
+  border-radius: 0 12px 12px 0;
+} */
+
+/* Target Group page */
+/* Styling for Target Group Management table */
+.target-tab-content {
+  margin-top: 20px;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Styling the table */
+.target-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin: 20px 0;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+  background-color: #1c1c1c;
+}
+
+/* Styling table headers */
+.target-table th {
+  background: linear-gradient(135deg, #4a4a4a, #333);
+  color: #fff;
+  font-weight: bold;
+  padding: 15px;
+  text-align: center;
+  vertical-align: middle;
+  letter-spacing: 0.05em;
+  border-bottom: 2px solid #555;
+}
+
+/* Styling table rows */
+.target-table td {
+  padding: 15px;
+  text-align: center;
+  vertical-align: middle;
+  color: #e0e0e0;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Styling the checkbox */
+.target-table input[type="checkbox"] {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background-color: #444;
+  border: 2px solid #ff6f61;
+  border-radius: 5px;
+  position: relative;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.target-table input[type="checkbox"]:checked {
+  background-color: #ff6f61;
+}
+
+.target-table input[type="checkbox"]:checked::before {
+  content: '✔';
+  color: #fff;
+  position: absolute;
+  top: 0;
+  left: 4px;
+}
+
+/* Alternating row background */
+.target-table tr:nth-child(even) {
+  background-color: #2c2c2c;
+}
+
+.target-table tr:nth-child(odd) {
+  background-color: #242424;
+}
+
+/* Hover effect for table rows */
+.target-table tr:hover {
+  background-color: #555;
+  cursor: pointer;
+  transform: translateY(-3px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Rounded corners on first and last table cells */
+/* .target-table th:first-child,
+.target-table td:first-child {
+  border-radius: 12px 0 0 12px;
+}
+
+.target-table th:last-child,
+.target-table td:last-child {
+  border-radius: 0 12px 12px 0;
+} */
+
+/* Optional styling for links or icons inside the table */
+.target-table a {
+  color: #ff8a50;
+}
+
+.target-table a:hover {
+  color: #ffab91;
+}
+
+
+
+/* button disabled */
+.user-btn:disabled {
+opacity: 0.5;
+cursor: not-allowed;
+}
+
+
+/* popup */
+/* Black theme popup styles */
+.user-slide-page .popup {
+position: fixed;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background: rgba(0, 0, 0, 0.7);
+display: flex;
+justify-content: center;
+align-items: center;
+z-index: 1000;
+}
+
+.user-slide-page .popup-content {
+background: #1f1f1f;
+padding: 20px;
+border-radius: 10px;
+width: 500px;
+color: #f5f5f5;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); 
+}
+
+.user-slide-page .form-group {
+margin-bottom: 15px;
+}
+
+.user-slide-page .form-group label {
+display: block;
+font-weight: bold;
+margin-bottom: 5px;
+color: #ddd;
+}
+
+.user-slide-page .form-group input {
+width: 100%;
+padding: 10px;
+box-sizing: border-box;
+background-color: #333;
+color: #fff;
+border: 1px solid #555;
+border-radius: 5px;
+}
+
+.user-slide-page .form-group input::placeholder {
+color: #aaa;
+}
+
+.user-slide-page .form-actions {
+display: flex;
+justify-content: flex-end;
+}
+
+.user-slide-page .password-requirements {
+margin-top: 5px;
+padding-left: 15px;
+color: #ffffff;
+font-size: 12px;
+}
+
+.user-slide-page .password-requirements li {
+margin: 3px 0;
+}
+
+
+.user-slide-page .user-btn {
+padding: 10px 20px;
+background-color: #007bff;
+color: white;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+transition: background-color 0.3s ease;
+}
+
+.user-slide-page .user-btn:hover {
+background-color: #0056b3;
+}
+
+.user-slide-page .user-btn.cancel-btn {
+margin-left: 10px;
+background-color: #f44336;
+color: white;
+}
+
+.user-slide-page .user-btn.cancel-btn:hover {
+background-color: #d32f2f; 
+}
+
+/* Styling the role checkboxes */
+.user-slide-page input[type="checkbox"] {
+margin-right: 8px;
+}
+
+.user-slide-page .checkbox-label {
+color: #f5f5f5;
+}
+
+
+.user-slide-page .form-group select {
+width: 100%;
+padding: 10px;
+background-color: #333;
+color: #fff;
+border: 1px solid #555;
+border-radius: 5px;
+appearance: none;
+}
+
+.user-slide-page .form-group select:focus {
+outline: none;
+border-color: #007bff;
+}
+
+/* delete-notification */
+.delete-notification .popup {
+position: fixed;
+top: 20px;
+left: 50%;
+transform: translateX(-50%);
+background: rgba(0, 0, 0, 0.9);
+display: flex;
+justify-content: center;
+align-items: center;
+z-index: 1000;
+animation: slide-down 0.5s ease-in-out;
+}
+
+.delete-notification .popup .popup-content {
+padding: 20px;
+border-radius: 10px;
+color: #f5f5f5;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+text-align: center;
+}
+
+.delete-notification .user-btn {
+padding: 10px 15px;
+background-color: #007bff;
+color: white;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+transition: background-color 0.3s ease;
+margin: 5px;
+}
+
+.delete-notification .user-btn:hover {
+background-color: #0056b3;
+}
+
+.delete-notification .user-btn.cancel-btn {
+background-color: #f44336;
+}
+
+.delete-notification .user-btn.cancel-btn:hover {
+background-color: #d32f2f;
+}
+
+
+@keyframes slide-down {
+from {
+  transform: translateY(-50px);
+  opacity: 0;
+}
+to {
+  transform: translateY(0);
+  opacity: 1; 
+}
+}
+
+
+/* Responsive Adjustments */
+@media (max-width: 600px) {
+.settings-header {
+    flex-direction: column; /* Stack header elements vertically */
+    align-items: flex-start; /* Align items to the start */
+}
+
+.settings-header .save-btn {
+    width: 100%; /* Full width save button */
+}
+
+.form-group {
+    margin-bottom: 15px; /* Space between form fields */
+}
+
+.form-actions {
+    display: flex;
+    flex-direction: column; /* Stack buttons in the form */
+}
+
+.form-actions .user-btn {
+    width: 100%; /* Full width buttons in the form */
+    margin: 5px 0; /* Space between buttons */
+}
+}
+
+
+
+/* Target Group popup */
+.form-group input, .form-group textarea {
+  width: 96.4%;
+  padding: 8px;
+  border: 1px solid #444;
+  background-color: #2a2a2a;
+  color: #e0e0e0;
+  border-radius: 4px;
+}
+
+.form-group textarea {
+  height: 80px;
+  resize: none;
+}
+
+/* Issuse Target */
+/* Popup Modal for Adding Issue Tracker (Dark Theme) */
+.issue-tracker-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.9); /* More opaque background for dark theme */
+  z-index: 9999; /* Ensures popup is above other content */
+}
+
+.issue-tracker-popup .popup-content {
+  background-color: #1e1e1e; /* Dark background for popup */
+  width: 400px;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.5); /* Darker shadow for better contrast */
+  animation: fadeIn 0.3s ease;
+}
+
+.issue-tracker-popup .popup-content h3 {
+  text-align: center;
+  color: #f1f1f1; /* Light text color */
+  margin-bottom: 20px;
+}
+
+/* Form styling */
+.issue-tracker-popup .issue-tracker-form .form-group {
+  margin-bottom: 15px;
+}
+
+.issue-tracker-popup .issue-tracker-form .form-group label {
+  display: block;
+  color: #f1f1f1; /* Light text color */
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.issue-tracker-popup .issue-tracker-form .form-group input,
+.issue-tracker-popup .issue-tracker-form .form-group select {
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  background-color: #333; /* Dark background for input fields */
+  border: 1px solid #555; /* Dark border for inputs */
+  color: #f1f1f1; /* Light text inside input fields */
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
+.issue-tracker-popup .issue-tracker-form .form-group input:focus,
+.issue-tracker-popup .issue-tracker-form .form-group select:focus {
+  border-color: #3498db;
+  outline: none;
+}
+
+.issue-tracker-popup .issue-tracker-form .form-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+/* Button Styling */
+.issue-tracker-popup .user-btn {
+  background-color: #3498db;
+  color: #ffffff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.issue-tracker-popup .user-btn:hover {
+  background-color: #2980b9;
+}
+
+.issue-tracker-popup .cancel-btn {
+  background-color: #e74c3c;
+}
+
+.issue-tracker-popup .cancel-btn:hover {
+  background-color: #c0392b;
+}
+
+/* Close button */
+.issue-tracker-popup .popup-close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 18px;
+  cursor: pointer;
+  color: #f1f1f1; /* Light color for close button */
 }

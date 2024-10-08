@@ -11,56 +11,78 @@ Chart.register(ArcElement, BarElement, CategoryScale, LinearScale, PointElement,
 const Dashboard = ({ isSidebarOpen }) => {
   // Data for the Doughnut chart
   const doughnutData = {
-    labels: ['High', 'Medium', 'Low'],
+    labels: ['Critical', 'High', 'Medium', 'Low', 'Info'],
     datasets: [{
-      data: [11, 18, 14],
-      backgroundColor: ['#ff6384', '#ffce56', '#36a2eb'],
-      hoverBackgroundColor: ['#ff6384', '#ffce56', '#36a2eb']
+      data: [5, 11, 18, 14, 7],  // Updated to include Critical and Info
+      backgroundColor: ['#ff0000', '#ff5722', '#ffce56', '#36a2eb', '#009688'], // Added red for Critical, blue for Info
+      hoverBackgroundColor: ['#ff0000', '#ff5722', '#ffce56', '#36a2eb', '#009688']
     }]
   };
 
   // Data for the Line chart
-  const lineData = {
-    labels: ['08/2016', '12/2017', '01/2018', '06/2018', '10/2018', '12/2018'],
-    datasets: [
-      {
-        label: 'High',
-        data: [5, 4, 3, 6, 10, 12],
-        fill: false,
-        borderColor: '#ff6384',
-        tension: 0.1
-      },
-      {
-        label: 'Medium',
-        data: [6, 5, 4, 3, 6, 9],
-        fill: false,
-        borderColor: '#ffce56',
-        tension: 0.1
-      },
-      {
-        label: 'Low',
-        data: [2, 3, 1, 2, 5, 7],
-        fill: false,
-        borderColor: '#36a2eb',
-        tension: 0.1
-      }
-    ]
-  };
+  // Data for the Line chart
+const lineData = {
+  labels: ['08/2016', '12/2017', '01/2018', '06/2018', '10/2018', '12/2018'],
+  datasets: [
+    {
+      label: 'Critical',
+      data: [1, 2, 3, 1, 5, 6],  // New dataset for Critical
+      fill: false,
+      borderColor: '#ff0000',  // Red for Critical
+      tension: 0.1
+    },
+    {
+      label: 'High',
+      data: [5, 4, 3, 6, 10, 12],
+      fill: false,
+      borderColor: '#ff5722',  // Saturated Orange for High
+      tension: 0.1
+    },
+    {
+      label: 'Medium',
+      data: [6, 5, 4, 3, 6, 9],
+      fill: false,
+      borderColor: '#ffce56',  // Saturated Yellow for Medium
+      tension: 0.1
+    },
+    {
+      label: 'Low',
+      data: [2, 3, 1, 2, 5, 7],
+      fill: false,
+      borderColor: '#36a2eb',  // Saturated Green for Low
+      tension: 0.1
+    },
+    {
+      label: 'Info',
+      data: [3, 2, 2, 4, 6, 8],  // New dataset for Info
+      fill: false,
+      borderColor: '#009688',  // Saturated Blue for Info
+      tension: 0.1
+    }
+  ]
+};
+
 
   // Data for the Bar chart
   const barData = {
-    labels: ['High', 'Medium', 'Low'],
+    labels: ['Critical', 'High', 'Medium', 'Low', 'Info'],
     datasets: [{
       label: 'Days',
-      data: [500, 450, 300],
-      backgroundColor: ['#ff6384', '#ffce56', '#36a2eb'],
-      hoverBackgroundColor: ['#ff6384', '#ffce56', '#36a2eb']
+      data: [600, 500, 450, 300, 100],  // Updated data for Critical and Info
+      backgroundColor: ['#ff0000', '#ff5722', '#ffce56', '#36a2eb', '#009688'], // Red for Critical, Blue for Info
+      hoverBackgroundColor: ['#ff0000', '#ff5722', '#ffce56', '#36a2eb', '#009688']
     }]
   };
 
+  
   const options = {
-    responsive: true, // Makes the chart responsive
-    maintainAspectRatio: false, // Allows the chart to resize with its container
+    responsive: true,
+    maintainAspectRatio: false,
+    scales: {
+      y: {
+        beginAtZero: true,
+      }
+    }
   };
 
   return (
