@@ -16,12 +16,17 @@ const Settings = () => {
     const [trackerPassword, setTrackerPassword] = useState('');
     const [selectedTracker, setSelectedTracker] = useState('GitHub');
     //end Issue Tracker
+
+    //Scan Type
+    const [isScanTypePopupOpen, setisScanTypePopupOpen] = useState(false);
+    //end Scan Type
+
     const [isAddUserPopupOpen, setIsAddUserPopupOpen] = useState(false); // State to manage popup visibility
     const [isAddTargetGroupPopupOpen, setIsAddTargetGroupPopupOpen] = useState(false);
     const [isDeleteUserPopupOpen, serIsDeleteUserPopupOpen] = useState(false);
     const [groupName, setGroupName] = useState('');
     const [groupDesc, setGroupDesc] = useState('');
-    
+
 
 
 
@@ -96,13 +101,15 @@ const Settings = () => {
     };
 
     // Check if the selected tab is one of the specific tabs to show Save button
-    const showSaveButton = ['Product Updates', 'Proxy Settings', 'Notification Settings'].includes(selectedTab);
+    const showSaveButton = ['Product Updates', 'Proxy Settings', 'Notification Settings', 'Scan Types'].includes(selectedTab);
 
     const showUserButtons = selectedTab === 'Users';
 
     const showTargetButton = selectedTab === 'Target Groups';
 
     const showIssueTrackersButton = selectedTab === 'Issue Trackers';
+
+    const showScanTypesButton = selectedTab === 'Scan Types';
 
     // Sample user data
     const userData = [
@@ -198,6 +205,39 @@ const Settings = () => {
         }
     ];
 
+    const ScanType = [
+        {
+            id: 1,
+            name: "Full Scan",
+            checked: true,
+        },
+        {
+            id: 2,
+            name: "High Rish Vulnerabilities",
+            checked: true
+        },
+        {
+            id: 3,
+            name: "cross site scripting vulnerability",
+            checked: true
+        },
+        {
+            id: 4,
+            name: "sql injection vulnerability",
+            checked: true
+        },
+        {
+            id: 5,
+            name: "weak Password",
+            checked: true
+        },
+        {
+            id: 6,
+            name: "Crawl Only",
+            checked: true
+        }
+    ]
+
 
     // Open/close the Add User popup
     const handleUserAddClosePopup = () => setIsAddUserPopupOpen(true);
@@ -212,10 +252,12 @@ const Settings = () => {
     const handleAddTarget = () => { handleTargetAddClosePopupClose(); };
 
     //Issue Tracker
-    const handleCancelIssueTracker = () => {
-        setIsIssueTrackerPopupOpen(false);
-    };
+    const handleCancelIssueTracker = () => { setIsIssueTrackerPopupOpen(false); };
 
+    //Scan Type
+    const handleAddScanType = () => {
+        setisScanTypePopupOpen(true);
+    };
 
     const isUserSelected = selectedUsers.length > 0;
     const isTargetSelected = selectedTargetGroups.length > 0;
@@ -250,8 +292,14 @@ const Settings = () => {
                         </div>
                     )}
 
+                    {showScanTypesButton && (
+                        <div className="user-actions">
+                            <button className="user-btn" style={{ marginLeft: '5px' }} onClick={handleAddScanType}>New</button>
+                            <button className="user-btn" disabled onClick={handleDeleteOpenPopup}> Delete Selected</button>
+                        </div>
+                    )}
 
-                    {!showSaveButton && !showUserButtons && !showTargetButton && !showIssueTrackersButton && (
+                    {!showSaveButton && !showUserButtons && !showTargetButton && !showIssueTrackersButton && !showScanTypesButton && (
                         <p className="header-message">{`You are on the ${selectedTab} tab`}</p>  // Custom message for other tabs
                     )}
                 </div>
@@ -460,6 +508,40 @@ const Settings = () => {
                         </div>
                     )}
 
+                    {selectedTab === 'Scan Types' && (
+                        <div className="scan-types-tab-content">
+                            <table className="scan-types-table">
+                                <thead>
+                                    <tr>
+                                        <th>Select</th>
+                                        <th>Name</th>
+                                        <th>Build-in</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {ScanType.map((scan, index) => (
+                                        <tr key={index}>
+                                            <td>
+                                                <input
+                                                    type="checkbox"
+
+                                                    onChange={() => handleUserSelect(scan.id)}
+                                                />
+                                            </td>
+                                            <td>{scan.name}</td>
+                                            <td>
+                                                <input type="checkbox"
+                                                    checked={scan.checked} // Check based on the `checked` state
+                                                />
+                                            </td>
+                                        </tr>
+                                    ))}
+                                </tbody>
+                            </table>
+                        </div>
+                    )}
+
+
 
                 </div>
 
@@ -569,55 +651,135 @@ const Settings = () => {
                     </div>
                 )}
 
-                {/* Issue Tracker */}
-            {isIssueTrackerPopupOpen && (
-            <div className="issue-tracker-popup">
-                <div className="popup-content">
-                    <h3>Add Issue Tracker</h3>
-                    <form className="issue-tracker-form">
-                        {/* Dropdown for selecting Issue Tracker */}
-                        <div className="form-group">
-                            <label htmlFor="issueTrackerType">Issue Tracker</label>
-                            <select id="issueTrackerType" onChange={handleIssueTrackerChange}>
-                                <option value="GitHub">GitHub</option>
-                                <option value="JIRA">JIRA</option>
-                                <option value="TFS">TFS</option>
-                            </select>
-                        </div>
+                {/* Issue Tracker poppoup */}
+                {isIssueTrackerPopupOpen && (
+                    <div className="issue-tracker-popup">
+                        <div className="popup-content">
+                            <h3>Add Issue Tracker</h3>
+                            <form className="issue-tracker-form">
+                                {/* Dropdown for selecting Issue Tracker */}
+                                <div className="form-group">
+                                    <label htmlFor="issueTrackerType">Issue Tracker</label>
+                                    <select id="issueTrackerType" onChange={handleIssueTrackerChange}>
+                                        <option value="GitHub">GitHub</option>
+                                        <option value="JIRA">JIRA</option>
+                                        <option value="TFS">TFS</option>
+                                    </select>
+                                </div>
 
-                        {/* Name Input */}
-                        <div className="form-group">
-                            <label htmlFor="trackerName">Name</label>
-                            <input type="text" id="trackerName" placeholder="Enter name" value={trackerName} onChange={handleTrackerNameChange} />
-                        </div>
+                                {/* Name Input */}
+                                <div className="form-group">
+                                    <label htmlFor="trackerName">Name</label>
+                                    <input type="text" id="trackerName" placeholder="Enter name" value={trackerName} onChange={handleTrackerNameChange} />
+                                </div>
 
-                        {/* URL Input */}
-                        <div className="form-group">
-                            <label htmlFor="trackerURL">URL</label>
-                            <input type="url" id="trackerURL" placeholder="https://api.github.com" value={trackerURL} onChange={handleTrackerURLChange} />
-                        </div>
+                                {/* URL Input */}
+                                <div className="form-group">
+                                    <label htmlFor="trackerURL">URL</label>
+                                    <input type="url" id="trackerURL" placeholder="https://api.github.com" value={trackerURL} onChange={handleTrackerURLChange} />
+                                </div>
 
-                        {/* User Input */}
-                        <div className="form-group">
-                            <label htmlFor="trackerUser">User</label>
-                            <input type="text" id="trackerUser" placeholder="Enter user" value={trackerUser} onChange={handleTrackerUserChange} />
-                        </div>
+                                {/* User Input */}
+                                <div className="form-group">
+                                    <label htmlFor="trackerUser">User</label>
+                                    <input type="text" id="trackerUser" placeholder="Enter user" value={trackerUser} onChange={handleTrackerUserChange} />
+                                </div>
 
-                        {/* Password Input */}
-                        <div className="form-group">
-                            <label htmlFor="trackerPassword">Password</label>
-                            <input type="password" id="trackerPassword" placeholder="Enter password" value={trackerPassword} onChange={handleTrackerPasswordChange} />
-                        </div>
+                                {/* Password Input */}
+                                <div className="form-group">
+                                    <label htmlFor="trackerPassword">Password</label>
+                                    <input type="password" id="trackerPassword" placeholder="Enter password" value={trackerPassword} onChange={handleTrackerPasswordChange} />
+                                </div>
 
-                        {/* Submit Button */}
-                        <div className="form-actions">
-                            <button type="submit" className="user-btn" onClick={handleSubmitIssueTracker}>Add Tracker</button>
-                            <button type="button" className="user-btn cancel-btn" onClick={handleCancelIssueTracker}>Cancel</button>
+                                {/* Submit Button */}
+                                <div className="form-actions">
+                                    <button type="submit" className="user-btn" onClick={handleSubmitIssueTracker}>Add Tracker</button>
+                                    <button type="button" className="user-btn cancel-btn" onClick={handleCancelIssueTracker}>Cancel</button>
+                                </div>
+                            </form>
                         </div>
-                    </form>
-                </div>
-            </div>
-        )}
+                    </div>
+                )}
+
+                {/* Scan Type popup */}
+                {isScanTypePopupOpen && (
+                    <div className="scan-type-popup">
+                        <div className="scan-type-popup-content">
+                            <h2>Add New Scan Type</h2>
+
+                            <div className="scan-type-container">
+                                {/* Left side - Checks List */}
+                                <div className="scan-list">
+                                    <label htmlFor="scanName">Name</label>
+                                    <input type="text" id="scanName" className="scan-input" />
+
+                                    <ul className="checks-tree">
+                                        <li>
+                                            <input type="checkbox" id="allChecks" />
+                                            <label htmlFor="allChecks">All checks</label>
+                                            <ul>
+                                                <li>
+                                                    <input type="checkbox" id="csrf" />
+                                                    <label htmlFor="csrf">CSRF (Cross-site Request Forgery)</label>
+                                                </li>
+                                                <li>
+                                                    <input type="checkbox" id="crawlerTests" />
+                                                    <label htmlFor="crawlerTests">Crawler tests</label>
+                                                </li>
+                                                <li>
+                                                    <input type="checkbox" id="domXss" />
+                                                    <label htmlFor="domXss">DOM-based XSS tests</label>
+                                                </li>
+                                                <li>
+                                                    <input type="checkbox" id="httpData" />
+                                                    <label htmlFor="httpData">HTTP Data tests</label>
+                                                </li>
+                                                <li>
+                                                    <input type="checkbox" id="locationTests" />
+                                                    <label htmlFor="locationTests">Location tests</label>
+                                                </li>
+                                                <li>
+                                                    <input type="checkbox" id="runtime" />
+                                                    <label htmlFor="runtime">Runtime passive analysis</label>
+                                                </li>
+                                                <li>
+                                                    <input type="checkbox" id="scanning" />
+                                                    <label htmlFor="scanning">Scanning tests</label>
+                                                </li>
+                                                <li>
+                                                    <input type="checkbox" id="slowHttpDos" />
+                                                    <label htmlFor="slowHttpDos">Slow HTTP Denial of Service (DoS)</label>
+                                                </li>
+                                                <li>
+                                                    <input type="checkbox" id="tlsVulnerability" />
+                                                    <label htmlFor="tlsVulnerability">TLS1-SSLv3 renegotiation vulnerability</label>
+                                                </li>
+                                                <li>
+                                                    <input type="checkbox" id="targetTests" />
+                                                    <label htmlFor="targetTests">Target tests</label>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                {/* Right side - Check Description */}
+                                <div className="check-description">
+                                    <h3>Check Description</h3>
+                                    <p>No description available for the selected check</p>
+                                </div>
+                            </div>
+
+                            <div className="button-group">
+                                <button className="close-btn" onClick={() => setisScanTypePopupOpen(false)}>Save</button>
+                                <button className="close-btn close-btn-alt" onClick={() => setisScanTypePopupOpen(false)}>Close</button>
+                            </div>
+                        </div>
+                    </div>
+                )}
+
+
+
 
                 <footer className="footer">
                     <p>© 2024 Infoziant</p>

@@ -59,7 +59,7 @@
 
 .settings .tab-link.active, .settings .tab-link:hover {
   color: #ff5722;
-  border-bottom: 2px solid #ff5722;
+ 
 }
 
 .settings .tab-link::before {
@@ -944,4 +944,298 @@ to {
   font-size: 18px;
   cursor: pointer;
   color: #f1f1f1; /* Light color for close button */
+}
+
+
+/* Scan Types Tab Content */
+.scan-types-tab-content {
+  width: 100%;
+  margin: 20px 0;
+  padding: 30px;
+  border-radius: 16px;
+  background-color: #1e1e1e; /* A slightly lighter background for contrast */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  color: #ffffff;
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Table styling */
+.scan-types-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #282828; /* Darker background for the table */
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Table header styling */
+.scan-types-table th {
+  background-color: #444; /* Darker header */
+  color: #ff6f61; /* Use primary color for headers */
+  font-weight: bold;
+  padding: 20px;
+  text-align: center;
+  vertical-align: middle;
+  border-bottom: 2px solid #555; /* Slightly lighter border */
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* Table row styling */
+.scan-types-table td {
+  padding: 15px;
+  text-align: center;
+  vertical-align: middle;
+  color: #ddd; /* Light grey for regular text */
+  transition: background-color 0.4s ease, transform 0.4s ease;
+}
+
+/* Alternating row background */
+.scan-types-table tr:nth-child(even) {
+  background-color: #333; /* Even rows with darker shade */
+}
+
+.scan-types-table tr:nth-child(odd) {
+  background-color: #2c2c2c; /* Odd rows slightly lighter */
+}
+
+/* Hover effect for table rows */
+.scan-types-table tr:hover {
+  background-color: #555; /* Lighter on hover */
+  cursor: pointer;
+  transform: translateY(-3px); /* Slight lift on hover */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Checkbox styling */
+.scan-types-table input[type="checkbox"] {
+  appearance: none;
+  width: 20px; /* Increased size for easier clicking */
+  height: 20px;
+  background-color: #2a2a2a;
+  border: 2px solid #ff6f61;
+  border-radius: 5px;
+  position: relative;
+  cursor: pointer;
+  transition: background-color 0.4s ease, border-color 0.4s ease;
+}
+
+.scan-types-table input[type="checkbox"]:checked {
+  background-color: #ff6f61; /* Highlight when checked */
+}
+
+.scan-types-table input[type="checkbox"]:checked::before {
+  content: '✔'; /* Checkmark */
+  color: #fff;
+  position: absolute;
+  left: 3px;
+}
+
+/* Hover effect for checkboxes */
+.scan-types-table input[type="checkbox"]:hover {
+  border-color: #ff8a50; /* Slightly lighter border on hover */
+}
+
+/* Button styling */
+button {
+  background-color: #ff6f61; /* Primary button color */
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+button:hover {
+  background-color: #ff8a50; /* Lighter on hover */
+  box-shadow: 0 4px 15px rgba(255, 111, 97, 0.5); /* Shadow effect on hover */
+}
+
+/* General form input styles */
+input[type="text"], input[type="password"], input[type="email"] {
+  width: 100%;
+  padding: 12px 15px;
+  margin: 8px 0;
+  border-radius: 8px;
+  background-color: #222; /* Dark input background */
+  color: #fff;
+  border: 1px solid #444; /* Darker border */
+  transition: border-color 0.4s ease;
+}
+
+input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focus {
+  border-color: #ff6f61; /* Highlight on focus */
+  outline: none;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .scan-types-table {
+      font-size: 14px; /* Smaller font for mobile */
+  }
+
+  button {
+      padding: 10px; /* Adjust button size */
+  }
+}
+
+
+/* SCan type popup */
+/* Popup Overlay */
+.scan-type-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8); /* Dark transparent overlay */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 50px;
+
+}
+
+/* Popup Content Box */
+.scan-type-popup-content {
+  background-color: #121212; /* Darker background for a sleek look */
+  color: #e0e0e0; /* Light grey text for readability */
+  padding: 30px;
+  border-radius: 15px;
+  width: 70%;
+  max-width: 1000px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6); /* Slightly stronger shadow */
+  animation: fadeIn 0.3s ease-out;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* Slide-in Animation for Popups */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Flexbox container for the scan options and description */
+.scan-type-container {
+  display: flex;
+  gap: 20px;
+}
+
+/* List of checks */
+.scan-list {
+  width: 50%;
+  background-color: #1c1c1c; /* Slightly lighter dark background */
+  padding: 20px;
+  border-radius: 10px;
+  overflow-y: auto;
+  max-height: 400px;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2); /* Subtle inner shadow */
+}
+
+.checks-tree {
+  list-style: none;
+  padding-left: 20px;
+  color: #bdbdbd; /* Softer grey text for check labels */
+}
+
+.checks-tree li {
+  margin-bottom: 12px;
+}
+
+input[type="checkbox"] {
+  margin-right: 10px;
+  transform: scale(1.2); /* Slightly bigger checkboxes for a modern look */
+}
+
+/* Description Section */
+.check-description {
+  width: 50%;
+  background-color: #1c1c1c;
+  padding: 20px;
+  border-radius: 10px;
+  color: #bdbdbd;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.check-description h3 {
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+  color: #ffffff; /* Stronger heading contrast */
+}
+
+.check-description p {
+  font-size: 0.9rem;
+  color: #9e9e9e; /* Subtle description text color */
+}
+
+/* Input Styles */
+input.scan-input {
+  background-color: #2a2a2a; /* Darker input field */
+  color: #e0e0e0; /* Light grey text */
+  border: 1px solid #444;
+  padding: 12px;
+  width: 96%;
+  border-radius: 10px;
+  transition: all 0.2s ease-in-out;
+}
+
+input.scan-input:focus {
+  border-color: #bb86fc; /* Accent color for focus */
+  box-shadow: 0 0 10px rgba(187, 134, 252, 0.5); /* Soft purple glow */
+  outline: none;
+}
+
+/* Button Group */
+.button-group {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.close-btn {
+  background-color: #ee7336; /* Purple primary action button color */
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.close-btn:hover {
+  background-color: #f75808; /* Hover effect */
+}
+
+.close-btn-alt {
+  background-color: #444; /* Secondary (close) button color */
+}
+
+.close-btn-alt:hover {
+  background-color: #666; /* Lighter hover */
+}
+
+/* Scrollbar Styles */
+.scan-list::-webkit-scrollbar, .check-description::-webkit-scrollbar {
+  width: 8px;
+}
+
+.scan-list::-webkit-scrollbar-thumb, .check-description::-webkit-scrollbar-thumb {
+  background-color: #444;
+  border-radius: 10px;
+}
+
+.scan-list::-webkit-scrollbar-thumb:hover, .check-description::-webkit-scrollbar-thumb:hover {
+  background-color: #666;
 }
