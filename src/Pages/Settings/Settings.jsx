@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import "./Settings.css";
+import ExcludedHoursPopup from './ExcludedHoursPopup';
 
 const Settings = () => {
     const [selectedTab, setSelectedTab] = useState('Product Updates');
@@ -19,7 +20,21 @@ const Settings = () => {
 
     //Scan Type
     const [isScanTypePopupOpen, setisScanTypePopupOpen] = useState(false);
+    const [selectedScanType, setselectedScanType] = useState([]); // Track selected users
     //end Scan Type
+
+
+
+    // Except working hours
+    const [selectedExcludedHour, setSelectedExcludedHour] = useState(null); // Will store the ID of the selected excluded hour
+    const [IsAddExcludedHours, setIsAddExcludedHours] = useState(false);
+    // Example of selected excluded hours (can be an array of IDs or data objects)
+    const [selectedExcludedHours, setSelectedExcludedHours] = useState([]);
+
+    // Engines Page
+    const [IsAddEngines, setIsAddEngines] = useState(false);
+    const [selectedEngines, setSelectedEngines] = useState([]);
+
 
     const [isAddUserPopupOpen, setIsAddUserPopupOpen] = useState(false); // State to manage popup visibility
     const [isAddTargetGroupPopupOpen, setIsAddTargetGroupPopupOpen] = useState(false);
@@ -88,7 +103,7 @@ const Settings = () => {
             }
         });
     };
-
+    
     // Toggle Target selection
     const handleTargetSelect = (id) => {
         setselectedTargetGroups((prevSelectedTarget) => {
@@ -100,6 +115,69 @@ const Settings = () => {
         });
     };
 
+    const handleScanTypeSelect = (id) => {
+        setselectedScanType((prevSelectedTarget) => {
+            if (prevSelectedTarget.includes(id)) {
+                return prevSelectedTarget.filter(userId => userId !== id);  // Deselect user
+            } else {
+                return [...prevSelectedTarget, id];  // Select user
+            }
+        });
+    };
+
+   
+
+    //Exclued Hours 
+    const handleSaveExcludedHours = () => {
+        // Add your logic to save the excluded hours
+        console.log("Excluded hours saved");
+    };
+
+    // Function to create a new excluded hours profile
+    const handleCreateExcludedProfile = () => {
+        // Add your logic to create a new excluded hours profile
+        console.log("Creating a new excluded hours profile");
+        setIsAddExcludedHours(true);
+    };
+
+    // Function to delete selected excluded hours
+    const handleDeleteExcludedHours = () => {
+        if (selectedExcludedHours.length > 0) {
+            // Add your logic to delete the selected excluded hours
+            console.log("Deleted selected excluded hours:", selectedExcludedHours);
+        } else {
+            console.log("No excluded hours selected for deletion");
+        }
+    };
+
+    const handleAuthorizeEngines = () => {
+        // Add your logic to save the excluded hours
+        console.log("Excluded hours saved");
+    };
+
+    // Function to create a new excluded hours profile
+    const handleDiableEngines = () => {
+        // Add your logic to create a new excluded hours profile
+        console.log("Creating a new excluded hours profile");
+        setIsAddEngines(true);
+    };
+
+    // Function to delete selected excluded hours
+    const handleDeleteEngines = () => {
+        if (selectedEngines.length > 0) {
+            // Add your logic to delete the selected excluded hours
+            console.log("Deleted selected excluded hours:", selectedEngines);
+        } else {
+            console.log("No excluded hours selected for deletion");
+        }
+    };
+
+    // Except working hours
+    const handleExcludedHourSelect = (id) => {
+        setSelectedExcludedHour(id);  // Set the currently selected excluded hour
+    };
+
+
     // Check if the selected tab is one of the specific tabs to show Save button
     const showSaveButton = ['Product Updates', 'Proxy Settings', 'Notification Settings', 'Scan Types'].includes(selectedTab);
 
@@ -110,6 +188,10 @@ const Settings = () => {
     const showIssueTrackersButton = selectedTab === 'Issue Trackers';
 
     const showScanTypesButton = selectedTab === 'Scan Types';
+
+    const showExcluedHoursButton = selectedTab === 'Excluded Hours';
+
+    const showEnginesButton = selectedTab === 'Engines';
 
     // Sample user data
     const userData = [
@@ -238,6 +320,25 @@ const Settings = () => {
         }
     ]
 
+    const Excluded_Hours = [
+        {
+            id: 1,
+            name: "No excluded hours in use1",
+        },
+        {
+            id: 2,
+            name: "Allows scans from 9am to 5pm"
+        },
+        {
+            id: 3,
+            name: "Except working hours"
+        },
+        {
+            id: 4,
+            name: "No weekends"
+        }
+    ]
+
 
     // Open/close the Add User popup
     const handleUserAddClosePopup = () => setIsAddUserPopupOpen(true);
@@ -261,6 +362,7 @@ const Settings = () => {
 
     const isUserSelected = selectedUsers.length > 0;
     const isTargetSelected = selectedTargetGroups.length > 0;
+    const isScanTypeSelected = selectedScanType.length > 0;
 
     return (
         <div className='settings'>
@@ -295,11 +397,34 @@ const Settings = () => {
                     {showScanTypesButton && (
                         <div className="user-actions">
                             <button className="user-btn" style={{ marginLeft: '5px' }} onClick={handleAddScanType}>New</button>
-                            <button className="user-btn" disabled onClick={handleDeleteOpenPopup}> Delete Selected</button>
+                            <button className="user-btn" disabled={!isScanTypeSelected} onClick={handleDeleteOpenPopup}> Delete Selected</button>
                         </div>
                     )}
 
-                    {!showSaveButton && !showUserButtons && !showTargetButton && !showIssueTrackersButton && !showScanTypesButton && (
+                    {showExcluedHoursButton && (
+                        <div className="user-actions">
+                            <button className="user-btn" style={{ marginLeft: '5px' }} onClick={handleCreateExcludedProfile}>Create Excluded Hours Profile</button>
+                            <button className="user-btn" disabled={selectedExcludedHours.length === 0} onClick={handleSaveExcludedHours}>Save Excluded Hours</button>
+                            
+                            <button className="user-btn" disabled={selectedExcludedHours.length === 0} onClick={handleDeleteExcludedHours}>
+                                Delete Selected
+                            </button>
+                        </div>
+                    )}
+
+                    {showEnginesButton && (
+                        <div className="user-actions">
+                        <button className="user-btn" disabled={selectedEngines.length === 0} onClick={handleAuthorizeEngines}>Authorize</button>
+                        <button className="user-btn" disabled={selectedEngines.length === 0} style={{ marginLeft: '5px' }} onClick={handleDiableEngines}>Disable</button>
+                        <button className="user-btn" disabled={selectedEngines.length === 0} onClick={handleDeleteEngines}>
+                            Delete
+                        </button>
+                    </div>
+                    )}
+
+
+
+                    {!showSaveButton && !showUserButtons && !showTargetButton && !showIssueTrackersButton && !showScanTypesButton && !showExcluedHoursButton && !showEnginesButton &&(
                         <p className="header-message">{`You are on the ${selectedTab} tab`}</p>  // Custom message for other tabs
                     )}
                 </div>
@@ -501,7 +626,6 @@ const Settings = () => {
                         </div>
                     )}
 
-
                     {selectedTab === 'Issue Trackers' && (
                         <div className="users-tab-content">
                             <p>No issue trackers configured yet</p>
@@ -509,39 +633,101 @@ const Settings = () => {
                     )}
 
                     {selectedTab === 'Scan Types' && (
-                        <div className="scan-types-tab-content">
-                            <table className="scan-types-table">
-                                <thead>
-                                    <tr>
-                                        <th>Select</th>
-                                        <th>Name</th>
-                                        <th>Build-in</th>
+                        <table className="scan-types-table">
+                            <thead>
+                                <tr>
+                                    <th>Select</th>
+                                    <th>Name</th>
+                                    <th>Build-in</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {ScanType.map((scan, index) => (
+                                    <tr key={index}>
+                                        <td>
+                                            <input
+                                                type="checkbox"
+                                                onChange={() => handleScanTypeSelect(scan.id)}
+                                            />
+                                        </td>
+                                        <td>{scan.name}</td>
+                                        <td>
+                                            <input type="checkbox"
+                                                checked={scan.checked} // Check based on the `checked` state
+                                            />
+                                        </td>
                                     </tr>
-                                </thead>
-                                <tbody>
-                                    {ScanType.map((scan, index) => (
-                                        <tr key={index}>
-                                            <td>
-                                                <input
-                                                    type="checkbox"
+                                ))}
+                            </tbody>
+                        </table>
 
-                                                    onChange={() => handleUserSelect(scan.id)}
-                                                />
-                                            </td>
-                                            <td>{scan.name}</td>
-                                            <td>
-                                                <input type="checkbox"
-                                                    checked={scan.checked} // Check based on the `checked` state
-                                                />
-                                            </td>
-                                        </tr>
-                                    ))}
-                                </tbody>
-                            </table>
-                        </div>
                     )}
 
+                    {selectedTab === 'Excluded Hours' && (
+                        <table className="scan-types-table">
+                            <thead>
+                                <tr>
+                                    <th>Select</th>
+                                    <th>Name</th>
+                                    <th>Build-in</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {Excluded_Hours.map((scan, index) => (
+                                    <tr key={index}>
+                                        <td>
+                                            <input
+                                                type="checkbox"
 
+                                                checked={scan.checked} // Check based on the `checked` state
+
+                                            />
+                                        </td>
+                                        <td>{scan.name}</td>
+                                        <td>
+                                            <input
+                                                className="radiobutton"
+                                                type="checkbox"
+                                                checked={selectedExcludedHour === scan.id}  // Only one can be checked at a time
+                                                onChange={() => handleExcludedHourSelect(scan.id)}  // Handle the selection
+                                            />
+                                        </td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+
+                    )}
+
+{selectedTab === 'Engines' && (
+    <div>
+        <h1>Engine Details</h1>
+        <table className="engine-details-table">
+            <tbody>
+                <tr>
+                    <td><strong>Name</strong></td>
+                    <td>Main Installation</td>
+                </tr>
+                <tr>
+                    <td><strong>Authorization</strong></td>
+                    <td>Authorized</td>
+                </tr>
+                <tr>
+                    <td><strong>Status</strong></td>
+                    <td>Online</td>
+                </tr>
+                <tr>
+                    <td><strong>Version</strong></td>
+                    <td>12.0.180911134</td>
+                </tr>
+                <tr>
+                    <td><strong>Endpoint</strong></td>
+                    <td>Main Installation</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+)}
 
                 </div>
 
@@ -778,7 +964,19 @@ const Settings = () => {
                     </div>
                 )}
 
-
+                {IsAddExcludedHours && (
+                    <div className="popup-container">
+                        <div className="popup-content">
+                            <h1>Add Excluded Hours</h1>
+                            <ExcludedHoursPopup
+                                isOpen={IsAddExcludedHours}
+                                onClose={() => setIsAddExcludedHours(false)}
+                            />
+                            {/* Add your form or other content here */}
+                            <button className="close-btn" onClick={() => setIsAddExcludedHours(false)}>Close</button>
+                        </div>
+                    </div>
+                )}
 
 
                 <footer className="footer">
