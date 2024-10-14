@@ -1,19 +1,15 @@
 .vulnerabilities {
-    padding: 20px;
-    margin-top: 60px;
-    background-color: #1e1e1e;
-    color: white;
+    
+    max-width: 1600px;
+    margin-top: 50px;
 }
 
-.vulnerabilities .vulnerabilities-container {
-    max-width: 1600px;
-    margin: 5px auto;
-}
 
 .vulnerabilities .vulnerabilities-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-top: 100px;
     margin-bottom: 20px;
 }
 
@@ -23,13 +19,21 @@
     /* Removed text-shadow or box-shadow from the header */
 }
 
+.vulnerabilities .vulnerabilities-actions{
+    display: flex;
+    justify-content:space-between;
+}
+
 .vulnerabilities .vulnerabilities-actions .btn {
-    padding: 10px 15px;
-    margin-right: 10px;
     border: none;
-    border-radius: 4px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease; /* Smooth transitions */
+    transition: background-color 0.3s ease;
+    font-size: 14px;
+    margin-left: 7px;
 }
 
 .vulnerabilities .btn-scan {
@@ -38,53 +42,85 @@
 }
 
 .vulnerabilities .btn-add {
-    background-color: #007bff;
+    width: 140px;
     color: white;
 }
 
 .vulnerabilities .btn-delete {
-    background-color: #ffc107;
+    width: 110px;
     color: rgb(255, 255, 255);
 }
 
 .vulnerabilities .btn-group {
-    background-color: #17a2b8;
     color: white;
 }
 
 .vulnerabilities .btn-report {
-    background-color: #dc3545;
     color: white;
 }
 
 .vulnerabilities .btn-import {
     background-color: #6c757d;
+    width: 120px;
     color: white;
+}
+
+
+.vulnerabilities .table-container{
+      overflow-y: auto;  /* Allow vertical scroll */
+    border-radius: 5px;
+    background-color: white;
+    border-radius: 10px;
 }
 
 /* Table Styles */
 .vulnerabilities .vulnerabilities-table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 20px;
-}
-
-.vulnerabilities .vulnerabilities-table th, 
-.vulnerabilities .vulnerabilities-table td {
-    padding: 12px 15px;
-    border: 1px solid #343a40;
-    text-align: left;
 }
 
 .vulnerabilities .vulnerabilities-table th {
-    background-color: #343a40;
-    color: #fff;
+    background-color: #091F82; /* Header background color */
+    color: #eeeeee; /* Light text for header */
+    padding: 15px 20px; /* More padding for a spacious feel */
+    text-align: left;
+    font-weight: bold;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    border-bottom: 2px solid #ffffff; /* Thicker border for header separation */
+    
     /* Ensure no box-shadow or glowing effects on the table headers */
 }
 
 .vulnerabilities .vulnerabilities-table td {
-    background-color: #23272b;
+    padding: 12px 15px; /* Padding for table cells */
+    border-bottom: 1px solid rgb(161, 161, 255); /* Subtle border between rows */
+    text-align: left;
+    background-color:  #ffffff; /* Cell background */
+    font-weight: 600;
+    color: #181818; 
 }
+
+.vulnerabilities .vulnerabilities-table td:nth-child(3),
+.vulnerabilities .vulnerabilities-table td:nth-child(5),
+.vulnerabilities .vulnerabilities-table td:nth-child(6) {
+    color: rgba(249, 40, 40, 0.904); /* Set text color to red for these specific columns */
+}
+
+
+.vulnerabilities .vulnerabilities-table td:nth-child(4) a {
+    color: rgba(249, 40, 40, 0.904); /* Set link text color to red */
+}
+
+.vulnerabilities .vulnerabilities-table td:nth-child(4) a:visited {
+    color: rgba(249, 40, 40, 0.904); /* Also change visited links to red */
+}
+
+.vulnerabilities .vulnerabilities-table td:nth-child(5){
+    padding-left: 55px;
+}
+
 
 .vulnerabilities .vulnerabilities-table .status.active {
     color: green;
@@ -163,23 +199,23 @@
 
 /* Specific button colors when enabled */
 .vulnerabilities .btn-scan:not(.disabled) {
-    background-color: #28a745; /* Green for enabled scan */
+    background-color: #4CAF50; /* Green */
 }
 
 .vulnerabilities .btn-add:not(.disabled) {
-    background-color: #007bff; /* Blue for enabled add */
+    background-color: #2196F3; /* Blue */
 }
 
 .vulnerabilities .btn-delete:not(.disabled) {
-    background-color: #ffc107; /* Yellow for enabled delete */
+    background-color: #f44336; /* Red */
 }
 
 .vulnerabilities .btn-group:not(.disabled) {
-    background-color: #17a2b8; /* Cyan for enabled group */
+    background-color: #ff9800; /* Orange */
 }
 
 .vulnerabilities .btn-report:not(.disabled) {
-    background-color: #dc3545; /* Red for enabled report */
+    background-color: #9C27B0; /* Purple */
 }
 
 
